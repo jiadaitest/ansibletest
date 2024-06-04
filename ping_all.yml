@@ -1,0 +1,11 @@
+---
+- name:Ping all servers
+  hosts: all_servers
+  tasks:
+    - name: Ping Linux
+      ping:
+      when: ansible_os_family != "Windows"
+
+    - name: Ping Windows
+      win_ping:
+      when: ansible_os_family == "Windows"
