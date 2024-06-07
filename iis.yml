@@ -1,0 +1,21 @@
+---
+- name: IIS test on dc1 
+  hosts: dc1
+  tasks:
+    - name: jiadaitest IIS
+      win_iis_website:
+        name: "jiadaitest" 
+        status: started
+        port: 8008
+        ip: "192.168.37.191"
+        hostname: "jiadaitest.local"
+        physical_path: "C:\sites\jiadaitest"
+      register: "website"
+
+
+
+
+
+# need to bild a pysical path on dc1
+# need to install IIS on dci or make sure there is on dc1
+    
