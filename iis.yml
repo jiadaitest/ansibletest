@@ -2,20 +2,51 @@
 - name: IIS test on dc1 
   hosts: dc1
   tasks:
-    - name: jiadaitest IIS
+    - name: create the pysical path
+      win_file:
+        path: C:\\IISansible\\jiadaitest1
+        state: directory
+
+    - name: create index.html file
+      win_copy:
+        content: "<html><body><h1>Welcome to the website! This is jiadai's ansible projct.</h1></body><html>"
+        dest: C:\\IISansible\\jiadaitest1\\index.html 
+
+    - name: set jiadaitest's IIS website
       win_iis_website:
-        name: "jiadaitest" 
+        name: jiadaitest 
         status: started
-        port: 8008
-        ip: "192.168.37.191"
-        hostname: "jiadaitest.local"
-        physical_path: "C:\sites\jiadaitest"
-      register: "website"
+        port: 80
+        ip: 192.168.37.191
+        hostname: jiadaitest.org
+        applications_pool: jiadatest_pool
+        physical_path: C:\\IISansible\\jiadaitest1
+        parameters: 
+          logfile.directory:C:\\IISansible\\jiadaitest1 
+          defaultDocument.enabled:true 
+          defaultDocument.files:index.html
+      register: website
+
+    - name: allow HTTP on 80
+      win_firewall_rule:
+        name: Allow HTTP
+        enable: yes
+        direction: in
+        action: allow
+        protocol: TCP
+        localport: 80
+
+    - name: allow HTTPS on 443
+      win_firewall_rule:
+        name: Allow HTTPS
+        enable: yes
+        direction: in
+        protocol: TCP
+        localport: 443
 
 
-
-
-
-# need to bild a pysical path on dc1
-# need to install IIS on dci or make sure there is on dc1
+    - name: remove default web site
+      win_iis_website:
+        name: "default web site"
+        state: absent
     
