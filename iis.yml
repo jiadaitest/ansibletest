@@ -18,7 +18,7 @@
         status: started
         port: 80
         ip: 192.168.37.191
-        hostname: jiadaitest.org
+        hostname: jiadaitest.com
         applications_pool: jiadatest_pool
         physical_path: C:\\IISansible\\jiadaitest1
         parameters: 
