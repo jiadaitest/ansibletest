@@ -1,0 +1,27 @@
+---
+
+- hosts: ubuntus
+  become: True
+  tasks:
+
+    - name: upgrade all ubuntus daily
+      apt:
+        update_cache: yes
+        upgrade: dist
+      register: upgrade_result
+
+    - name: check the upgrade's results
+      debug:
+        msg: "result: {{ upgrade_result }}"
+      when: upgrade_result is defined
+
+
+    - name: daily upgrade
+      cron:
+
+
+        name: "daily upgrade"
+        minute: "0"
+        hour: "5"
+        job: "ansible-playbook /home/jiadai/.ansible/ansibletest/test/upgrade.yml"
+
