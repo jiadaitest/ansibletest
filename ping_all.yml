@@ -3,9 +3,11 @@
   hosts: all
   tasks:
     - name: Ping Linux
+      tags: ubuntu,linux
       ping:
       when: ansible_os_family != "Windows"
 
     - name: Ping Windows
+      tags: windows
       win_ping:
       when: ansible_os_family == "Windows"
