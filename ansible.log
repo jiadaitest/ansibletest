@@ -1,0 +1,48 @@
+2024-06-12 06:57:41,445 p=3656 u=jiadai n=ansible | PLAY [Ping all servers] ***********************************************************************************************************
+2024-06-12 06:57:41,456 p=3656 u=jiadai n=ansible | TASK [Gathering Facts] ************************************************************************************************************
+2024-06-12 06:57:43,402 p=3656 u=jiadai n=ansible | ok: [107]
+2024-06-12 06:57:43,534 p=3656 u=jiadai n=ansible | ok: [106]
+2024-06-12 06:57:51,111 p=3656 u=jiadai n=ansible | ok: [dc2]
+2024-06-12 06:57:51,656 p=3656 u=jiadai n=ansible | ok: [dc1]
+2024-06-12 06:57:53,520 p=3656 u=jiadai n=ansible | ok: [dc3]
+2024-06-12 06:57:53,570 p=3656 u=jiadai n=ansible | TASK [Ping Linux] *****************************************************************************************************************
+2024-06-12 06:57:53,706 p=3656 u=jiadai n=ansible | skipping: [dc1]
+2024-06-12 06:57:53,739 p=3656 u=jiadai n=ansible | skipping: [dc2]
+2024-06-12 06:57:53,754 p=3656 u=jiadai n=ansible | skipping: [dc3]
+2024-06-12 06:57:54,376 p=3656 u=jiadai n=ansible | ok: [106]
+2024-06-12 06:57:54,377 p=3656 u=jiadai n=ansible | ok: [107]
+2024-06-12 06:57:54,401 p=3656 u=jiadai n=ansible | TASK [Ping Windows] ***************************************************************************************************************
+2024-06-12 06:57:54,490 p=3656 u=jiadai n=ansible | skipping: [106]
+2024-06-12 06:57:54,517 p=3656 u=jiadai n=ansible | skipping: [107]
+2024-06-12 06:57:57,185 p=3656 u=jiadai n=ansible | ok: [dc1]
+2024-06-12 06:57:57,195 p=3656 u=jiadai n=ansible | ok: [dc3]
+2024-06-12 06:57:57,978 p=3656 u=jiadai n=ansible | ok: [dc2]
+2024-06-12 06:57:58,028 p=3656 u=jiadai n=ansible | PLAY RECAP ************************************************************************************************************************
+2024-06-12 06:57:58,028 p=3656 u=jiadai n=ansible | 106                        : ok=2    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2024-06-12 06:57:58,028 p=3656 u=jiadai n=ansible | 107                        : ok=2    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2024-06-12 06:57:58,029 p=3656 u=jiadai n=ansible | dc1                        : ok=2    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2024-06-12 06:57:58,029 p=3656 u=jiadai n=ansible | dc2                        : ok=2    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2024-06-12 06:57:58,029 p=3656 u=jiadai n=ansible | dc3                        : ok=2    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2024-06-12 07:45:40,739 p=3827 u=jiadai n=ansible | playbook: ping_all.yml
+2024-06-12 07:45:40,739 p=3827 u=jiadai n=ansible |   play #1 (all): Ping all servers	TAGS: []
+2024-06-12 07:45:40,741 p=3827 u=jiadai n=ansible |       TASK TAGS: [lunux, ubuntu, windows]
+
+2024-06-12 07:48:47,292 p=3831 u=jiadai n=ansible | PLAY [Ping all servers] *****************************************************************
+2024-06-12 07:48:47,303 p=3831 u=jiadai n=ansible | TASK [Gathering Facts] ******************************************************************
+2024-06-12 07:48:49,587 p=3831 u=jiadai n=ansible | ok: [107]
+2024-06-12 07:48:49,641 p=3831 u=jiadai n=ansible | ok: [106]
+2024-06-12 07:48:59,264 p=3831 u=jiadai n=ansible | ok: [dc3]
+2024-06-12 07:49:02,019 p=3831 u=jiadai n=ansible | ok: [dc2]
+2024-06-12 07:49:02,612 p=3831 u=jiadai n=ansible | ok: [dc1]
+2024-06-12 07:49:02,661 p=3831 u=jiadai n=ansible | TASK [Ping Linux] ***********************************************************************
+2024-06-12 07:49:02,765 p=3831 u=jiadai n=ansible | skipping: [dc1]
+2024-06-12 07:49:02,790 p=3831 u=jiadai n=ansible | skipping: [dc2]
+2024-06-12 07:49:02,806 p=3831 u=jiadai n=ansible | skipping: [dc3]
+2024-06-12 07:49:03,469 p=3831 u=jiadai n=ansible | ok: [106]
+2024-06-12 07:49:03,474 p=3831 u=jiadai n=ansible | ok: [107]
+2024-06-12 07:49:03,523 p=3831 u=jiadai n=ansible | PLAY RECAP ******************************************************************************
+2024-06-12 07:49:03,524 p=3831 u=jiadai n=ansible | 106                        : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-06-12 07:49:03,524 p=3831 u=jiadai n=ansible | 107                        : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2024-06-12 07:49:03,525 p=3831 u=jiadai n=ansible | dc1                        : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2024-06-12 07:49:03,525 p=3831 u=jiadai n=ansible | dc2                        : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2024-06-12 07:49:03,525 p=3831 u=jiadai n=ansible | dc3                        : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
