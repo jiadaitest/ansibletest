@@ -1,7 +1,7 @@
 ---
 
 - name: linux update
-  hosts: ubuntus
+  hosts: ubuntus,workstations,centos
   become: True
   tasks:
 
@@ -9,15 +9,28 @@
       apt:
         update_cache: yes
         upgrade: dist
-      register: upgrade_result
-       
-        #registermodule is to define the whole result of the task as a variable and can be call later.
+      when: ansible_os_family == "Debian"
+      register: upgrade_result_ubuntus
+
+    - name: upgrade centos daily
+      yum:
+        update_cache: yes
+        name: '*'
+        state: latest
+      when: ansible_os_family == "RedHat"
+      register: upgrade_result_centos
 
 
-    - name: check the upgrade's results
+    - name: check the ubuntus upgrade's results
       debug:
-        msg: "result: {{ upgrade_result }}"
-      when: upgrade_result is defined
+        msg: "ubuntus result: {{ upgrade_result_ubuntus }}"
+      when: upgrade_result_ubuntus is defined
+
+    - name: check the centos upgrade's results
+      debug:
+        msg: "centOS result: {{ upgrade_result_centos }}"
+      when: upgrade_result_centos is defined
+
 
 
     - name: daily upgrade
