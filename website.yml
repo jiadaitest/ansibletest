@@ -1,0 +1,22 @@
+---
+
+- hosts: ubuntus
+  become: true
+  tasks:
+
+  - name: install apache2 package and php surpport for apache
+    apt:
+      name: 
+        - apache2
+        - libapache2-mod-php
+      state: latest
+      update_cache: yes
+
+  - name: copy default html to site
+    tags: ubuntu,apache
+    copy:
+      src: default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
