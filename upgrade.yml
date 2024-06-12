@@ -10,6 +10,9 @@
         update_cache: yes
         upgrade: dist
       register: upgrade_result
+       
+        #registermodule is to define the whole result of the task as a variable and can be call later.
+
 
     - name: check the upgrade's results
       debug:
