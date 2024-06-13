@@ -1,19 +1,40 @@
 ---
 
-- hosts: ubuntus
+- hosts: ubuntus,centos
   become: true
   tasks:
 
     - name: install apache2 package and php surpport for apache
+      tags: ubuntu,apache
       apt:
         name: 
           - apache2
           - libapache2-mod-php
         state: latest
         update_cache: yes
+      when: ansible_distribution == "Ubuntu"
+
+    - name: install apache and php for centos
+      tags: apache,centos,httpd
+      dnf:
+        name:
+          - httpd
+          - php
+        state: latest
+      when: ansible_distribution == "CentOS"
+
+    - name: start httpd (centos)
+      tags: centos,httpd
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+        #set the enable can make the service run everytime after reboot. This is the issue for centos but ubuntu doset have that problem
+      when: ansible_distribution == "CentOS" 
+
 
     - name: copy default html to site
-      tags: ubuntu,apache
+      tags: apache,httpd
       copy:
         src: default_site.html
         dest: /var/www/html/index.html
