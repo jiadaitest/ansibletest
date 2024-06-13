@@ -1,12 +1,12 @@
 [ubuntus]
-106 ansible_ssh_host=192.168.37.193 ansible_ssh_user="jiadai" ansible_ssh_pass="jiadai12345" ansible_ssh_port=22
-107 ansible_ssh_host=192.168.37.194 ansible_ssh_user="jiadai2" ansible_ssh_pass="jiadai12345" ansible_ssh_port=22
+106 ansible_ssh_host=192.168.37.193 ansible_ssh_user="jiadai" ansible_ssh_port=22
+107 ansible_ssh_host=192.168.37.194 ansible_ssh_user="jiadai2" ansible_ssh_port=22
 
 [centos]
-108 ansible_ssh_host=192.168.37.195 ansible_ssh_user="jiadai3" ansible_ssh_pass="jiadai12345" ansible_ssh_port=22
+108 ansible_ssh_host=192.168.37.195 ansible_ssh_user="jiadai3" ansible_ssh_port=22
 
 [workstations]
-109 ansible_ssh_host=192.168.37.196 ansible_ssh_user="jiadai4" ansible_ssh_pass="jiadai12345" ansible_ssh_port=22
+109 ansible_ssh_host=192.168.37.196 ansible_ssh_user="jiadai4" ansible_ssh_port=22
 
 
 [winservers]
@@ -16,4 +16,7 @@ dc2 ansible_ssh_host=192.168.37.192 ansible_ssh_user="Administrator" ansible_ssh
 
 dc3 ansible_ssh_host=192.168.37.190 ansible_ssh_user="Administrator" ansible_ssh_pass="Jiadai12345" ansible_ssh_port=22 ansible_shell_type=cmd ansible_ssh_restries=3 ansible_bevome_method=runas
 
+[onbig]
+ansible1_big ansible_ssh_host=172.30.6.247 ansible_ssh_user="jiadai" ansible_ssh_port=22
+ansible2_big ansible_ssh_host=172.30.6.248 ansible_ssh_user="jiadai" ansible_ssh_port=22
  
