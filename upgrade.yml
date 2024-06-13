@@ -68,7 +68,7 @@
         actions:
           - path: "powershell.exe"
             arguments: "-ExecutionPolicy Bypass -File C:\\ansibletest\\win_update.ps1"
-        trigger:
+        triggers:
           - type: daily
             start_boundary: '2024-06-11T05:00:00'
         username: "SYSTEM"
