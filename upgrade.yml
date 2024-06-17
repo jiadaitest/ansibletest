@@ -38,7 +38,7 @@
         name: "daily upgrade"
         minute: "0"
         hour: "5"
-        job: "/usr/bin/ansible-playbook -i /home/jiadai/.ansibletest/test/hosts /home/jiadai/.ansible/ansibletest/test/upgrade.yml > /home/jiadai/ansible_cron.log 2>&1"
+        job: "/usr/bin/ansible-playbook -i /home/jiadai/.ansible/ansibletest/test/hosts /home/jiadai/.ansible/ansibletest/test/upgrade.yml > /home/jiadai/ansible_cron.log 2>&1"
 
 
 - name: windows update
