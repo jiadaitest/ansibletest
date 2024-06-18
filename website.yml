@@ -42,6 +42,19 @@
         group: root
         mode: 0644
 
+# creat a new user on each server
+- hosts: ubuntus,centos,workstation,onbig 
+  become: true
+  tasks:
+
+
+    - name: add ssh key for mango
+      tags: always
+      authorized_key:
+        user: mango
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCKLxj4j3HSREsXa4cyJKUkfwFjVPPzmdjf3sPVcQK/B8+lOH2hkP+tt6fErqJbnc0KF8+AxBk9qD06FzmKgjBY2UC0P0CeG8ZFKepOUYAF/bpe8k9bJXxyBZuYiPPTfeYEOrm9UQgs/GNA1D+Q90vlzFsVXngTP8jv3Y3XcP2zR16g9LFQwV48ih4EjJLAKGTXXOuxOCF1jm2sZHVGb1BBS3YNVL/I0qiSoq1Y9kIdLwwgfqdbfUqy2HmepzSOMeYmU0lyZ7EiBGJ8kx462fXiQSom4PF7n5SZ5Zc25ADBLecheqBg5zYWqB4vsOEBMDdBlIjBuFM8UWKk+aqNjQTMEOtUq4mRY2fF9pcHltP7cAO3GdZ1/WN23P5MAvJjSZGAdEOn/dy+pQ5mD3Xa6sscebHBBuw8hhM2R9aec8uD3n8+06coa8Aa29Ij/rvJ2jgKAIrS5Dxlm+8jo9PYv9SbAH97GlVup0YI/u+J5sLR2XUBqA+O/ZPX0AlyBNgsqh0= jiadai@ansible"
+
+
 - hosts: workstations
   become: true
   tasks:
