@@ -1,7 +1,7 @@
 ---
 
 - name: linux update
-  hosts: ubuntus,workstations,centos,onbig,onlittle
+  hosts: ubuntus,workstations,centos,onbig,onlittle,k8s
   become: True
   tasks:
 
@@ -39,7 +39,7 @@
         minute: "0"
         hour: "5"
         job: "/usr/bin/ansible-playbook -i /home/jiadai/.ansible/ansibletest/test/hosts /home/jiadai/.ansible/ansibletest/test/upgrade.yml > /home/jiadai/ansible_cron.log 2>&1"
-
+        state: present
 
 - name: windows update
   hosts: winservers
